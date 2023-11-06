@@ -2,7 +2,7 @@
 # STAR alignment — STAR 2.7.3a — release 98 
 # HT-seq feature count - GRCh38.98 ( version 0.11.1)
 
-#### ii) Prelude 
+#### i) Prelude 
 
 library("edgeR")
 packageVersion("edgeR")
@@ -119,7 +119,7 @@ sd <- calcNormFactors(sd, method="TMM")
 
 sd$samples$ID<- substr(rownames(sd$samples), 2,9)
 
-sample_info <- read_excel("/mnt/sdb/BRC_COVID_omic_pilot/COVID_multiomics_metadata.xlsx",skip = 43, sheet = "Illumina RNA seq" )[1:180,]
+sample_info <- read_excel(paste0(here::here("BRC_COVID_omic_pilot"), "/","/COVID_multiomics_metadata.xlsx"),skip = 43, sheet = "Illumina RNA seq" )[1:180,]
 
 sample_info$ID <- substr(sample_info$`library name`, 7,15)
 
